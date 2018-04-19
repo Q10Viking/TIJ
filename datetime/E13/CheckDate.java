@@ -29,17 +29,17 @@ public class CheckDate{
 
         //Invoking the query without using a lamba expression.
         Boolean isFamilyVacation = date.query(new FamilyVacations());
-        
+
 		//Invoking the query using a lambda expression.
 		Boolean isFamilyBirthday = date.query(FamilyBirthdays::isFamilyBirthday);
-		
-		
+
+
 		if(isFamilyVacation.booleanValue() || isFamilyBirthday.booleanValue()){
             System.out.printf("%s is an important date!%n",date);
         }else{
             System.out.printf("%s is not an imporant date.%n",date);
         }
-		
-		
+
+
     }
 }
