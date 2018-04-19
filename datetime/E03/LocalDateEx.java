@@ -15,3 +15,8 @@ public class LocalDateEx{
     }
 
 }
+
+/*
+2018-04-19 THURSDAY
+For the date of 2018-04-19,the next Wednesday is 2018-04-25
+*/
