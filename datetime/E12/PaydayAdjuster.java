@@ -1,4 +1,5 @@
 import java.time.temporal.Temporal;
+
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.time.LocalDate;
@@ -25,7 +26,9 @@ public class PaydayAdjuster implements TemporalAdjuster{
             date = date.with(TemporalAdjusters.previous(DayOfWeek.FRIDAY));
 
         }
-        return input.with(date);
+       // return input.with(date);
+        return date;
+
     }
 
 }

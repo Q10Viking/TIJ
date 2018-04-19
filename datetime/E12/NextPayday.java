@@ -43,3 +43,9 @@ public class NextPayday{
         }
     }
 }
+
+/*
+javac NextPayday April 18
+Given the date: 2018 Apr 18
+the next payday: 2018 Apr 30
+*/
