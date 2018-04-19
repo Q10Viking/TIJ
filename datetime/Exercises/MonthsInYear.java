@@ -35,3 +35,22 @@ public class MonthsInYear{
 
 	}
 }
+
+/*
+λ java MonthsInYear 2018
+For the year 2018:
+JANUARY             : 31 days
+FEBRUARY            : 28 days
+MARCH               : 31 days
+APRIL               : 30 days
+MAY                 : 31 days
+JUNE                : 30 days
+JULY                : 31 days
+AUGUST              : 31 days
+SEPTEMBER           : 30 days
+OCTOBER             : 31 days
+NOVEMBER            : 30 days
+DECEMBER            : 31 days
+
+
+*/
