@@ -2,7 +2,7 @@ import static com.q10viking.util.Print.*;
 import java.util.Locale;
 import java.time.DayOfWeek;
 import java.time.format.TextStyle;
-
+//add something
 public class DayOfWeekEx{
     public static void main(String args[]){
         Locale englishUS = Locale.US;
