@@ -33,8 +33,14 @@ public class TypeCounter extends HashMap<Class<?>,Integer>{
             result.append(", ");
         }
         result.delete(result.length()-2,result.length());
-        result.append(", ");
+        result.append("} ");
         return result.toString();
     }
 
 }
+
+/*
+java typeinfo.pets3.PetCounter5
+Rat Manx Cymric Mutt Pug Cymric Pug Manx Cymric Rat EgyptianMau Hamster EgyptianMau Mutt Mutt Cymric Mouse Pug Mouse Cymric
+{Rat=2, Rodent=5, Mutt=3, Pug=3, Manx=2, Mouse=2, EgyptianMau=2, Cymric=5, Hamster=1, Manx=5, Dog=6, Cat=9, Pet=20}
+*/
