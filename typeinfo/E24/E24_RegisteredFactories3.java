@@ -3,6 +3,7 @@ import java.lang.reflect.*;
 import typeinfo.util.Null;
 import typeinfo.factory.Factory;
 import java.util.*;
+
 class NullPartProxyHandler implements InvocationHandler{
     private String nullName;
     private IPart proxied = new NPart();
