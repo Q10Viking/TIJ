@@ -23,3 +23,14 @@ public class E03_Rhomboid{
 		Circle c = (Circle)shape;
     }
 }
+
+/*
+java typeinfo.E03.E03_Rhomboid
+Circle.draw()
+Square.draw()
+Triangle.draw()
+Rhomboid.draw()
+Exception in thread "main" java.lang.ClassCastException: typeinfo.E
+03.Rhomboid cannot be cast to typeinfo.E03.Circle
+        at typeinfo.E03.E03_Rhomboid.main(E03_Rhomboid.java:23)
+  */

@@ -43,3 +43,16 @@ public class Staff extends ArrayList<Position>{
         System.out.println(staff);
     }
 }
+
+/*
+
+java typeinfo.util.Staff
+[Postion: President Person: Me Last The top,Lonely At, Postion: CTO
+ NullPerson, Postion: Marketing Manager NullPerson, Postion: Produc
+t Manager NullPerson, Postion: Project Leader Person: Janet Planner
+ The Burbs, Postion: Software Engineer Person: Bob Coder Bright Lig
+ht City, Postion: Software Engineer NullPerson, Postion: Software E
+ngineer NullPerson, Postion: Software Engineer NullPerson, Postion:
+ Technical Writer NullPerson, Postion: Test Engineer NullPerson]
+
+ */

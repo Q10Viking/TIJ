@@ -7,7 +7,7 @@ class HShape{
 		highlighted = true;
 	}
 	public void clearHighlight(){ highlighted = false;}
-	
+
 	void draw(){
 		System.out.println(this+" draw()");
 	}
@@ -15,7 +15,7 @@ class HShape{
 		return getClass().getName()+(highlighted ? " highlighted":" normal");
 	}
 	static List<HShape> shapes = new ArrayList<HShape>();
-	HShape(){ 
+	HShape(){
 		shapes.add(this);
 	}
 	static void highlight1(Class<?> type){
@@ -44,10 +44,10 @@ class HShape{
 	static void highlight2(Class<?> type){
 		forEach(type,"highlight");
 	}
-	
+
 	static void clearHighlight2(Class<?> type){
 		forEach(type,"clearHighlight");
-	}	
+	}
 }
 
 
@@ -64,26 +64,27 @@ public class E06_Highlight{
 				new HTriangle(),new HSquare(),
 				new HTriangle(),new HSquare(),
 				new HCircle(),new HSquare());
-				
+
 		HShape.highlight1(HCircle.class);
 		HShape.highlight2(HCircle.class);
 		for(HShape shape: shapes)
 			shape.draw();
-		
+
 		System.out.println("----------");
-		
+
 		//Highlight them all
 		HShape.highlight1(HShape.class);
 		HShape.highlight2(HShape.class);
-		
+
 		for(HShape shape: shapes){
 			shape.draw();
 		}
 		System.out.println("----------");
-		
+
 		//Not in the hierarchy
 		HShape.clearHighlight1(ArrayList.class);
 		HShape.clearHighlight2(ArrayList.class);
+
 		for(HShape shape: shapes)
 			shape.draw();
     }
@@ -91,35 +92,35 @@ public class E06_Highlight{
 
 
 /*
-java typeinfo.E06.E06_Highlight           
-typeinfo.E06.HCircle highlighted draw()     
-typeinfo.E06.HSquare normal draw()          
-typeinfo.E06.HTriangle normal draw()        
-typeinfo.E06.HSquare normal draw()          
-typeinfo.E06.HTriangle normal draw()        
-typeinfo.E06.HSquare normal draw()          
-typeinfo.E06.HCircle highlighted draw()     
-typeinfo.E06.HSquare normal draw()          
-----------                                  
-typeinfo.E06.HCircle highlighted draw()     
-typeinfo.E06.HSquare highlighted draw()     
-typeinfo.E06.HTriangle highlighted draw()   
-typeinfo.E06.HSquare highlighted draw()     
-typeinfo.E06.HTriangle highlighted draw()   
-typeinfo.E06.HSquare highlighted draw()     
-typeinfo.E06.HCircle highlighted draw()     
-typeinfo.E06.HSquare highlighted draw()     
-----------                                  
-typeinfo.E06.HCircle highlighted draw()     
-typeinfo.E06.HSquare highlighted draw()     
-typeinfo.E06.HTriangle highlighted draw()   
-typeinfo.E06.HSquare highlighted draw()     
-typeinfo.E06.HTriangle highlighted draw()   
-typeinfo.E06.HSquare highlighted draw()     
-typeinfo.E06.HCircle highlighted draw()     
-typeinfo.E06.HSquare highlighted draw()  
+java typeinfo.E06.E06_Highlight
+typeinfo.E06.HCircle highlighted draw()
+typeinfo.E06.HSquare normal draw()
+typeinfo.E06.HTriangle normal draw()
+typeinfo.E06.HSquare normal draw()
+typeinfo.E06.HTriangle normal draw()
+typeinfo.E06.HSquare normal draw()
+typeinfo.E06.HCircle highlighted draw()
+typeinfo.E06.HSquare normal draw()
+----------
+typeinfo.E06.HCircle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+typeinfo.E06.HTriangle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+typeinfo.E06.HTriangle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+typeinfo.E06.HCircle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+----------
+typeinfo.E06.HCircle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+typeinfo.E06.HTriangle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+typeinfo.E06.HTriangle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
+typeinfo.E06.HCircle highlighted draw()
+typeinfo.E06.HSquare highlighted draw()
 
-*/   
+*/
 /*
 We eliminate duplicate code by moving all the methods (starting with toString)
 into the base class, and use RTTI to determine the name of the class.
@@ -145,6 +146,6 @@ to highlight, with .class appended to produce the Class reference. If you pass
 HShape.class as the argument, it matches and highlights every HShape in the
 list. Use clearHighlight( ) the same way to clear all highlighting.
 
-If you pass a class that isn¡¯t in the HShape hierarchy, there¡¯s never a match so
+If you pass a class that isnÂ¡Â¯t in the HShape hierarchy, thereÂ¡Â¯s never a match so
 the highlight and clearHighlight methods do nothing.
 */
