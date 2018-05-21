@@ -3,7 +3,7 @@ package com.q10viking.strategy;
 public class CashContext {
 	//声明一个CashSuper
 	private CashSuper cs;
-	
+	//策略模式
 	public CashContext(CashSuper cashsuper) {
 		cs = cashsuper;
 	}
@@ -15,7 +15,7 @@ public class CashContext {
 		switch(type) {
 			case "正常收费":
 				cs = new CashNormal();
-				break;
+				break; 
 			case "满300返100":
 				cs = new CashReturn("300","100");
 				break;

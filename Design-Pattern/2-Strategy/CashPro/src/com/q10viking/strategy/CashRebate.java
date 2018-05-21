@@ -11,3 +11,4 @@ public class CashRebate extends CashSuper {
 		return money*moneyRebate;
 	}
 }
+ 

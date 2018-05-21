@@ -1,10 +1,12 @@
 package com.q10viking.strategy;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -12,16 +14,17 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 public class CashApp extends JFrame{
 
-	private static double total = 0.0d;
+	private double total = 0.0d;
 	private JTextArea displayArea;
 	private JTextField priceText,numText;
 	private CashJComboBox cb;
 	private StringBuilder msgBuffer = new StringBuilder();
+	private JLabel totalPriceL;
 	public CashApp() {
 		super("Q10-CashApp");
 		initComponents();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(280,350);
+		setSize(280,370);
 		setLocationRelativeTo(null);
 	//	setResizable(false);
 		setVisible(true);
@@ -42,9 +45,18 @@ public class CashApp extends JFrame{
 		JButton resetButton = new JButton("重置");
 		resetButton.setFont(f);
 		cb = new CashJComboBox();
-		
+		//显示框
 		displayArea = new JTextArea(" ",10,22);		
-	
+		JLabel totalLabel = new JLabel("总计: ");
+		totalLabel.setFont(f);
+		
+		
+		totalPriceL = new JLabel("            ");
+		totalPriceL.setFont(f);
+		totalPriceL.setBorder(BorderFactory.createLineBorder(Color.black));
+		
+		//初始化总价
+		total = 0;
 		setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
 		add(priceLabel);
 		add(priceText);
@@ -64,14 +76,21 @@ public class CashApp extends JFrame{
 					double price = Double.parseDouble(priceText.getText());
 					double money = num*price;
 					double accepted = context.GetResult(money);
-					String items = "单价: "+price+" 数量： "+num+" "+option+" 合计:"+accepted+"\n";
-					//String items = String.format("%s %-5.1f %s %-5.1f %s   %s %.1f\n","单价:",price,"数量：",num,option,"合计: ",accepted);
-			
+					System.out.println(total);
+					total += accepted;
+					System.out.printf("%f %.1f",accepted,accepted);
+					
+					//String items = "单价: "+price+" 数量： "+num+" "+option+" 合计:"+accepted+"\n";
+					String items = String.format("%s %-5.1f %s %-5.1f %s   %s %.1f\n","单价:",price,"数量：",num,option,"合计: ",accepted);
+					
 					msgBuffer.append(items);
 					//System.out.println(msgBuffer);
 					displayArea.setText(msgBuffer.toString());
+					
+					totalPriceL.setText(" "+String.format("%.1f",total)+" ");
+					
 			}
-			
+			 
 		});
 		
 		add(numLabel);
@@ -87,27 +106,23 @@ public class CashApp extends JFrame{
 				priceText.setText("");
 				//清空缓存
 				msgBuffer.setLength(0);;
+				//总价计零
+				total = 0;
+				totalPriceL.setText("    ");
 			}
 			
 		});
 		
 		add(cb);
 		add(displayArea);
+		add(totalLabel);
+		add(totalPriceL);
 		
 	}
 	public static void main(String[] args) {
 		
 		new CashApp();
 		
-		
-		
-		String option = "打8折";
-		CashContext csuper = new CashContext(option);
-		double totalPrices = 0d;
-		totalPrices = csuper.GetResult(80*5);
-		total = total + totalPrices;
-		System.out.println("单价：  "+80+" 数量： "+5+" "+option+" 合计： "+totalPrices);
-		System.out.println("总价： "+total);
 	}
 
 }
